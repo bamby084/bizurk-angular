@@ -1,0 +1,8 @@
+<div class="flex flex-row items-center gap-[16px]">
+  <ion-avatar class="rounded-[50%] bg-white p-[6px] size-[56px]">
+    <img alt="User avatar" [src]="user()?.image"/>
+  </ion-avatar>
+
+  <ion-text class="font-semibold">{{user()?.firstName}} {{user()?.lastName}}</ion-text>
+  <app-more-button class="ml-auto"/>
+</div>

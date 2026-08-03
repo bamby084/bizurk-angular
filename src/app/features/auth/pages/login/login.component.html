@@ -1,0 +1,32 @@
+<div class="mx-auto w-full h-full max-w-[400px] p-[24px]">
+  <form class="w-full h-full flex flex-col items-center justify-center gap-[12px]"
+    (ngSubmit)="login()">
+  
+    <h2>Please login to continue</h2>
+    <ion-input 
+      label="Username" label-placement="floating"
+      (ionInput)="userName.set($event.detail.value ?? '')"
+      fill="outline" placeholder="Enter Username">
+    </ion-input>
+
+    <ion-input
+      label="Password" label-placement="floating"
+      (ionInput)="password.set($event.detail.value ?? '')"
+      fill="outline" placeholder="Enter Password" type="password">
+      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+    </ion-input>
+
+    @if(errorMessage()){
+      <ion-note class="error-summary">{{ errorMessage() }}</ion-note>
+    }
+
+    <ion-button type="submit" class="mt-4 w-full h-[44px]"
+      [disabled]="!canLogin()">
+      @if(isLoggingIn()){
+        <ion-spinner/>
+      }@else {
+        Login
+      }
+    </ion-button>
+  </form>
+</div>

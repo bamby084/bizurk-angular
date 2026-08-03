@@ -1,0 +1,11 @@
+<div class="rounded-[24px] border border-[#68BCE3] py-[8px] w-[32px] h-full bg-[white]">
+  <div class="slider">
+    <div class="slider-track-bar"></div>
+    <div class="slider-progress"></div>
+    <div class="slider-thumb"></div>
+
+    <input aria-label="slider" type="range" class="native-vertical-slider"
+      [value]="value()" (input)="onInput($event)"
+    />
+  </div>
+</div>
