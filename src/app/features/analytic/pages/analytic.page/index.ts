@@ -4,14 +4,17 @@ import { AnalyticHeaderComponent } from "../../components/analytic.header/analyt
 import { CurrencyStore } from '../../../currency/stores/currency.store';
 import { AnalyticDonutChartComponent } from "../../components/analytic.donut.chart/analytic.donut.chart.component";
 import { Currency } from '../../../currency/models/currency';
-import { AnimationService } from '../../../../core/services/animation.service';
+import { AnimationService } from '../../../../shared/services/animation.service';
+import { CountUpDirective } from '../../../../shared/directives/count.up.directive';
 
 @Component({
   selector: 'app-analytic-page',
   templateUrl: './index.html',
   styleUrls: ['./index.scss'],
   standalone: true,
-  imports: [IonContent, AnalyticHeaderComponent, IonSegment, IonSegmentButton, IonLabel, IonSegmentView, IonSegmentContent, IonText, AnalyticDonutChartComponent],
+  imports: [IonContent, AnalyticHeaderComponent, IonSegment, 
+    IonSegmentButton, IonLabel, IonSegmentView, IonSegmentContent, 
+    IonText, AnalyticDonutChartComponent, CountUpDirective],
 })
 export class AnalyticPageComponent implements OnInit {
   @ViewChild('content') contentPage!: ElementRef<HTMLDivElement>

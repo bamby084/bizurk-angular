@@ -6,7 +6,7 @@ import {arrowDownOutline, arrowUpOutline} from "ionicons/icons";
 import { addIcons } from 'ionicons';
 import { Currency } from '../../models/currency';
 import { CurrencyChartComponent } from "../../components/currency.chart/currency.chart.component";
-import { AnimationService } from '../../../../core/services/animation.service';
+import { AnimationService } from '../../../../shared/services/animation.service';
 
 @Component({
   selector: 'app-currency-page',

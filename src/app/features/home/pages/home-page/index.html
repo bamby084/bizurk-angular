@@ -9,7 +9,10 @@
       <div class="flex flex-col gap-[44px]">
         <ion-button class="card" (click)="onCardClick(leftValue())">
           <div class="flex flex-col items-center gap-[12px] my-[12px]">
-            <span class="text-[24px] font-semibold">${{leftValue()}}</span>
+            <div class="flex flex-row items-baseline">
+              <ion-text class="text-[24px]">$</ion-text>
+              <ion-text class="text-[24px] font-semibold" countUp [target]="leftValue()" [duration]="500" [enable]="enableNumberCountUp()"></ion-text>
+            </div>
             <span>Lorem ipsum dolor</span>
           </div>
         </ion-button>
@@ -23,7 +26,10 @@
       <div class="flex flex-col gap-[44px]">
         <ion-button class="card" (click)="onCardClick(rightValue())">
           <div class="flex flex-col items-center gap-[12px] my-[12px]">
-            <span class="text-[24px] font-semibold">${{rightValue()}}</span>
+            <div class="flex flex-row items-baseline">
+              <ion-text class="text-[24px]">$</ion-text>
+              <ion-text class="text-[24px] font-semibold" countUp [target]="rightValue()" [duration]="500" [enable]="enableNumberCountUp()"></ion-text>
+            </div>
             <span>Lorem ipsum dolor</span>
           </div>
         </ion-button>
