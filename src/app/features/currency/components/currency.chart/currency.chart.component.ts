@@ -19,11 +19,9 @@ export class CurrencyChartComponent implements OnDestroy, AfterViewInit {
 
   createBarBackground(context: ScriptableContext<"bar">): CanvasGradient{
     const {chart} = context;
-    const metadata = chart.getDatasetMeta(context.datasetIndex);
-    const bar = metadata.data[context.dataIndex] as BarElement;
-    const barProps = bar.getProps(["y", "base"], true);
-    const gradient = chart.ctx.createLinearGradient(0, barProps.y ?? chart.chartArea.top ,
-      0, barProps.base ??  chart.chartArea.bottom);
+    const {ctx, chartArea} = chart;
+
+    const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
     gradient.addColorStop(0, "#EFFDFE");
     gradient.addColorStop(1, "#87EBFD");
     return gradient;
@@ -55,7 +53,7 @@ export class CurrencyChartComponent implements OnDestroy, AfterViewInit {
 
       chart.data.labels = labels;
       chart.data.datasets = datasets;
-      chart.update();
+      chart.update("active");
     })
   }
 

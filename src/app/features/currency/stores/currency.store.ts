@@ -1,24 +1,29 @@
-import { Injectable, signal } from "@angular/core";
+import { DestroyRef, inject, Injectable, signal } from "@angular/core";
 import { Currency } from "../models/currency";
+import { interval } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CurrencyStore{
   readonly currencies = signal<Currency[]>([]);
-  
-  loadCurrencies(){
+
+  constructor(){
+    this.setDefaultCurrencies();
+  }
+
+  setDefaultCurrencies(){
     this.currencies.set([
       {
         name: "USD",
         symbol: "$",
         buyInfo: {
-          rate: 23.568,
+          rate: 23568,
           change: -0.046,
           changeType: "down"
         },
         sellInfo: {
-          rate: 36.143,
+          rate: 36143,
           change: -0.056,
           changeType: "up"
         }
@@ -27,12 +32,12 @@ export class CurrencyStore{
         name: "EUR",
         symbol: "€",
         buyInfo: {
-          rate: 17.376,
+          rate: 17376,
           change: -0.056,
           changeType: "up",
         },
         sellInfo: {
-          rate: 21.113,
+          rate: 21113,
           change: -0.087,
           changeType: "up"
         }
@@ -45,7 +50,7 @@ export class CurrencyStore{
           changeType: "down"
         },
         sellInfo: {
-          rate: 36.076,
+          rate: 36076,
           change: -0.087,
           changeType: "down"
         }
@@ -53,7 +58,7 @@ export class CurrencyStore{
     ])
   }
 
-  constructor(){
-    this.loadCurrencies();
+  set(newCurrencies: Currency[]){
+    this.currencies.set(newCurrencies);
   }
 }
