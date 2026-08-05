@@ -1,23 +1,31 @@
-import { Component, effect, inject, OnInit, signal } from '@angular/core';
-import { IonContent, IonSegment, IonSegmentButton, IonLabel, IonSegmentView, IonSegmentContent, IonTitle, IonText, SegmentCustomEvent } from "@ionic/angular/standalone";
+import { Component, effect, ElementRef, inject, OnInit, signal, ViewChild } from '@angular/core';
+import { IonContent, IonSegment, IonSegmentButton, IonLabel, IonSegmentView, IonSegmentContent, IonText, SegmentCustomEvent } from "@ionic/angular/standalone";
 import { AnalyticHeaderComponent } from "../../components/analytic.header/analytic.header.component";
 import { CurrencyStore } from '../../../currency/stores/currency.store';
 import { AnalyticDonutChartComponent } from "../../components/analytic.donut.chart/analytic.donut.chart.component";
 import { Currency } from '../../../currency/models/currency';
+import { AnimationService } from '../../../../core/services/animation.service';
 
 @Component({
   selector: 'app-analytic-page',
   templateUrl: './index.html',
   styleUrls: ['./index.scss'],
   standalone: true,
-  imports: [IonContent, AnalyticHeaderComponent, IonSegment, IonSegmentButton, IonLabel, IonSegmentView, IonSegmentContent, IonTitle, IonText, AnalyticDonutChartComponent],
+  imports: [IonContent, AnalyticHeaderComponent, IonSegment, IonSegmentButton, IonLabel, IonSegmentView, IonSegmentContent, IonText, AnalyticDonutChartComponent],
 })
 export class AnalyticPageComponent implements OnInit {
+  @ViewChild('content') contentPage!: ElementRef<HTMLDivElement>
   readonly currencyStore = inject(CurrencyStore);
   readonly selectedCurrency = signal<string | undefined>(undefined);
+  readonly animationService = inject(AnimationService);
 
   constructor() {
     this.selectedCurrency.set(this.currencyStore.currencies()[1].name);
+  }
+
+  async ionViewWillEnter() {
+    const animation = await this.animationService.fadeIn(this.contentPage.nativeElement, 500);
+    animation.destroy();
   }
 
   onSegmentChange(event: SegmentCustomEvent){

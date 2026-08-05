@@ -1,7 +1,7 @@
 import { Component, computed, inject, OnInit } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router } from '@angular/router';
-import { IonTabs, IonTabBar, IonTabButton, IonIcon } from '@ionic/angular/standalone';
+import { IonTabs, IonTabBar, IonTabButton, IonIcon, } from '@ionic/angular/standalone';
 import { home, homeOutline, settings, settingsOutline, shield, shieldOutline, add, addOutline } from 'ionicons/icons';
 import { filter, map, startWith } from 'rxjs/operators';
 import { AppStore } from '../../app.store';
@@ -12,7 +12,7 @@ import { AppLoadingComponent } from "../../shared/components/app.loading/app.loa
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.scss'],
   standalone: true,
-  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, AppLoadingComponent],
+  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, AppLoadingComponent,],
 })
 export class TabsComponent implements OnInit {
   readonly router = inject(Router);

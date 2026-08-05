@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, effect, ElementRef, input, OnDestroy, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, effect, ElementRef, input, OnDestroy, output, signal, ViewChild } from '@angular/core';
 import { BarElement, Chart, ChartDataset, ScriptableContext } from 'chart.js/auto';
 import { Currency } from '../../models/currency';
-import { IonText, IonIcon } from "@ionic/angular/standalone";
+import { IonText, IonIcon, IonRippleEffect } from "@ionic/angular/standalone";
 import {chevronDown} from "ionicons/icons";
 import { addIcons } from 'ionicons';
 
@@ -9,12 +9,13 @@ import { addIcons } from 'ionicons';
   selector: 'app-currency-chart',
   templateUrl: './currency.chart.component.html',
   styleUrls: ['./currency.chart.component.scss'],
-  imports: [IonText, IonIcon],
+  imports: [IonText, IonIcon, IonRippleEffect],
 })
 export class CurrencyChartComponent implements OnDestroy, AfterViewInit {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef<HTMLCanvasElement>;
   readonly chart = signal<Chart|null>(null);
   readonly currencies = input<Currency[]>([]);
+  readonly onClose = output<void>();
 
   createBarBackground(context: ScriptableContext<"bar">): CanvasGradient{
     const {chart} = context;
@@ -56,6 +57,10 @@ export class CurrencyChartComponent implements OnDestroy, AfterViewInit {
       chart.data.datasets = datasets;
       chart.update();
     })
+  }
+
+  close(){
+    this.onClose.emit();
   }
 
   initializeChart(){

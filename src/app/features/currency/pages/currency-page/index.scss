@@ -1,6 +1,6 @@
 @reference "tailwindcss";
 
-:host{
+ion-content.currency-page-container::part(scroll){
   padding: 28px;
 }
 

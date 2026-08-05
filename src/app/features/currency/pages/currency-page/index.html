@@ -1,5 +1,5 @@
-<ion-content class="ion-bg-transparent" fullscreen forceOverscroll="false">
-  <div class="w-full h-full flex flex-col">
+<ion-content class="ion-bg-transparent currency-page-container">
+  <div class="w-full flex flex-col" #content>
     <currency-header/>
     <div class="flex flex-col mt-[40px] gap-[26px]">
       <div class="flex flex-row justify-between px-[16px]">
@@ -44,7 +44,12 @@
         </div>
       }
       
-      <app-currency-chart [currencies]="currencyStore.currencies()"/>
+      @if(showCurrencyChart()){
+        <app-currency-chart [currencies]="currencyStore.currencies()"
+          (onClose)="closeChart()"
+          class="fixed left-0 -bottom-[52px] w-full pb-[52px]"
+        />
+      }
     </div>
   </div>
 </ion-content>

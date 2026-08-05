@@ -37,9 +37,7 @@ export class VerticalSliderComponent {
         this.value.set(min);
       } else if (value > max) {
         this.value.set(max);
-      } 
-      console.log('Value:', this.value(), this.progress());
-
+      }
     });
   }
 }

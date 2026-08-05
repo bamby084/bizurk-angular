@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IonContent, IonRouterOutlet } from "@ionic/angular/standalone";
-import { RouterOutlet } from "@angular/router";
 
 
 @Component({
@@ -8,7 +7,7 @@ import { RouterOutlet } from "@angular/router";
   templateUrl: './auth-layout.component.html',
   styleUrls: ['./auth-layout.component.scss'],
   standalone: true,
-  imports: [IonContent, RouterOutlet, IonRouterOutlet],
+  imports: [IonContent, IonRouterOutlet],
 })
 export class AuthLayoutComponent implements OnInit {
   constructor() {}
