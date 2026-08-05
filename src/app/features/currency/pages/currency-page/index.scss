@@ -1,0 +1,21 @@
+@reference "tailwindcss";
+
+:host{
+  padding: 28px;
+}
+
+.currency-card{
+  @apply flex flex-row relative overflow-hidden bg-linear-[90deg,rgba(255,255,255,0.6),rgba(255,255,255,1)] text-[#000] items-center rounded-[24px] text-lg;
+  
+  .change-type-icon{
+    color: #55AADF;
+  }
+
+  &.selected{
+    @apply flex bg-linear-[90deg,rgba(6,124,249,0.6),rgba(6,124,249,1)] text-white;
+
+    .change-type-icon{
+      color: white;
+    }
+  }
+}

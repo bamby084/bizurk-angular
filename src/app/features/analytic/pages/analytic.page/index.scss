@@ -1,0 +1,13 @@
+:host{
+  padding: 28px;
+}
+
+.currency-segment{
+  border-radius: 24px;
+  --background: linear-gradient(to right, #0986FE, #15AEFD);
+  color: white;
+}
+
+ion-segment-button{
+  --indicator-color: linear-gradient(135deg, #DDF8FE, #FFFFFF);
+}

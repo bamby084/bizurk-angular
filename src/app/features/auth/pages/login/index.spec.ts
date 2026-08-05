@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { LoginComponent } from '.';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('LoginComponent', () => {
+  let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [HomeComponent],
+      imports: [LoginComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

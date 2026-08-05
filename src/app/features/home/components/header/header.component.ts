@@ -4,7 +4,7 @@ import { IonAvatar, IonText} from "@ionic/angular/standalone";
 import { MoreButtonComponent } from "../../../../shared/components/more.button/more.button.component";
 
 @Component({
-  selector: 'app-header',
+  selector: 'home-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,

@@ -1,0 +1,41 @@
+<ion-content class="ion-bg-transparent" fullscreen forceOverscroll="false">
+  <div class="w-full h-full flex flex-col">
+    <app-analytic-header/>
+    <div>
+      <ion-segment-view class="h-auto">
+        @for(currency of currencyStore.currencies();track currency){
+          <ion-segment-content [id]="currency.name">
+            <div class="flex flex-col items-center">
+              <ion-text class="text-3xl">{{currency.symbol}}{{currency.buyInfo.rate}}</ion-text>
+              <ion-text class="text-lg">Lorem ipsum dolot</ion-text>
+
+              <app-analytic-donut-chart class="mt-[48px]" [currency]="currency"></app-analytic-donut-chart>
+              <ion-text class="text-lg mt-[32px]">Lorem ipsum dolot</ion-text>
+              <div class="flex flex-row items-baseline gap-[4px] mt-[20px]">
+                <ion-text class="text-3xl">{{currency.symbol}}{{currency.sellInfo.rate}}</ion-text>
+                <ion-text class="text-[28px]">/</ion-text>
+                <ion-text class="text-[28px] text-[#2B7AAD]">{{getPercent(currency)}}%</ion-text>
+              </div>
+            </div>
+          </ion-segment-content>
+        }
+      </ion-segment-view>
+      
+      <div class="flex flex-row justify-center gap-3 mt-[24px]">
+        @for(currency of currencyStore.currencies(); track currency){
+          <div class="size-[8px] rounded-full transition-all duration-200 bg-[#1B9AF7]"
+          [class.bg-white]="selectedCurrency() === currency.name"></div>
+        }
+      </div>
+
+      <ion-segment class="currency-segment mt-[44px]" [value]="selectedCurrency()" (ionChange)="onSegmentChange($event)">
+        @for(currency of currencyStore.currencies(); track currency){
+            <ion-segment-button class="[--padding-top:12px] [--padding-bottom:12px] [--border-radius:24px] [--color-checked:#000]" 
+              [value]="currency.name" [contentId]="currency.name">
+              <ion-label class="text-lg">{{currency.name}}</ion-label>
+            </ion-segment-button>
+        }
+      </ion-segment>
+    </div>
+  </div>
+</ion-content>

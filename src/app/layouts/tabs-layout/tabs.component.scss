@@ -1,6 +1,7 @@
 
 ion-tab-bar {
   background: linear-gradient(180deg, #D6F2FD 0%, #EEF7FE 50%, #FDFEFE 100%);
+  //background: linear-gradient(180deg, rgba(255,255,255, 0.4), rgba(255,255,255, 1));
   border: 1px solid #D9EEF7;
 }
 
@@ -9,5 +10,5 @@ ion-tab-button {
 }
 
 .tabs-container {
-  background: linear-gradient(180deg, #B9E3F6 0%, #AFE0F9 50%, #9EDBFA 100%)
+  background: linear-gradient(180deg, rgba(131, 210, 250, 0.6), rgba(131, 210, 250, 1))
 }

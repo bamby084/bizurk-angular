@@ -1,0 +1,50 @@
+<ion-content class="ion-bg-transparent" fullscreen forceOverscroll="false">
+  <div class="w-full h-full flex flex-col">
+    <currency-header/>
+    <div class="flex flex-col mt-[40px] gap-[26px]">
+      <div class="flex flex-row justify-between px-[16px]">
+        <ion-text class="text-xl">Lorem</ion-text>
+        <ion-text class="text-xl">Ipsum</ion-text>
+        <ion-text class="text-xl">Dolor</ion-text>
+      </div>
+
+      @for(currency of currencyStore.currencies(); track currency){
+        <div class="currency-card ion-activatable"
+          [class.selected]="currency === selectedCurrency()"
+          (click)="setSelectCurrency(currency)"
+        >
+         
+          <div class="flex flex-1 flex-col items-center justify-center h-full py-[22px] border-r-1 border-r-[#C4F7FD]">
+            <ion-text class="text-[32px]">{{currency.name}}</ion-text>
+          </div>
+          <div class="flex flex-col flex-1 items-center justify-center h-full py-[22px] border-r-1 border-r-[#C4F7FD]">
+            <div class="flex flex-row items-center">
+              @if(currency.buyInfo.changeType === "down"){
+                <ion-icon class="change-type-icon" name="arrow-down-outline"/>
+              }@else{
+                <ion-icon class="change-type-icon" name="arrow-up-outline"/>
+              }
+              <ion-text class="font-semibold">{{currency.buyInfo.rate}}</ion-text>
+            </div>
+            <ion-text>{{currency.buyInfo.change}}</ion-text>
+          </div>
+          <div class="flex flex-col flex-1 items-center">
+            <div class="flex flex-row items-center">
+              @if(currency.sellInfo.changeType === "down"){
+                <ion-icon class="change-type-icon" icon="arrow-down-outline"/>
+              }@else {
+                <ion-icon class="change-type-icon" name="arrow-up-outline"/>
+              }
+              <ion-text class="font-semibold">{{currency.sellInfo.rate}}</ion-text>
+            </div>
+            <ion-text>{{currency.sellInfo.change}}</ion-text>
+          </div>
+
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      }
+      
+      <app-currency-chart [currencies]="currencyStore.currencies()"/>
+    </div>
+  </div>
+</ion-content>

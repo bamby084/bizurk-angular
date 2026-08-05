@@ -1,11 +1,28 @@
-<div class="rounded-[24px] border border-[#68BCE3] py-[8px] w-[32px] h-full bg-[white]">
-  <div class="slider">
-    <div class="slider-track-bar"></div>
-    <div class="slider-progress"></div>
-    <div class="slider-thumb"></div>
+<div class="flex flex-row h-full gap-[18px]">
+  <!--slider-->
+  <div class="rounded-[24px] border-2 border-[#68BCE3] py-[16px] w-[32px] h-full bg-linear-[135deg,#FFFFFF,#D9F3FD]">
+    <div class="slider">
+      <div class="slider-track-bar"></div>
+      <div class="slider-progress" [style.height.%]="progress()"></div>
+      <div class="slider-thumb" [style.bottom.%]="progress()"></div>
 
-    <input aria-label="slider" type="range" class="native-vertical-slider"
-      [value]="value()" (input)="onInput($event)"
-    />
+      <input aria-label="slider" type="range" class="native-vertical-slider"
+        [value]="value()" [min]="min()" [max]="max()" [step]="step()" 
+        (input)="onInput($event)"
+      />
+    </div>
   </div>
+
+  <!--labels-->
+  @if(showLabels()){
+    <div class="flex flex-col relative my-[18px]">
+      @for(label of labels(); track label)
+      {
+        <div class="flex flex-row gap-[10px] items-center absolute translate-y-1/2" [style.bottom.%]="getLabelPosition(label)">
+          <div class="w-[24px] h-[2px] bg-[#5EB5E3]"></div>
+          <span>{{label}}</span>
+        </div>
+      }
+    </div>
+  }
 </div>

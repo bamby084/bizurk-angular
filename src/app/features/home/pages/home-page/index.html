@@ -1,0 +1,38 @@
+<ion-content class="ion-bg-transparent" fullscreen forceOverscroll="false">
+  <div class="w-full h-full flex flex-col">
+    <home-header page-header></home-header>
+
+    <ion-input class="name-input h-[70px] rounded-[16px] mt-[52px] font-semibold"
+      value="Lorem ipsum"/>
+    <div class="flex flex-row flex-wrap mt-[36px] justify-between">
+      <!--left card-->
+      <div class="flex flex-col gap-[44px]">
+        <ion-button class="card" (click)="onCardClick(leftValue())">
+          <div class="flex flex-col items-center gap-[12px] my-[12px]">
+            <span class="text-[24px] font-semibold">${{leftValue()}}</span>
+            <span>Lorem ipsum dolor</span>
+          </div>
+        </ion-button>
+        
+        <app-vertical-slider class="h-[250px] ml-[16px]" [min]="100" [max]="2000" [(value)]="leftValue"
+          [labels]="[2000, 1500, 1000, 500, 100]" [showLabels]="true"/>
+
+      </div>
+
+      <!--right card-->
+      <div class="flex flex-col gap-[44px]">
+        <ion-button class="card" (click)="onCardClick(rightValue())">
+          <div class="flex flex-col items-center gap-[12px] my-[12px]">
+            <span class="text-[24px] font-semibold">${{rightValue()}}</span>
+            <span>Lorem ipsum dolor</span>
+          </div>
+        </ion-button>
+
+        <app-vertical-slider class="h-[250px] ml-[16px]" [min]="100" [max]="2500" [(value)]="rightValue"
+          [labels]="[2500, 2000, 1500, 1000, 500, 100]" [showLabels]="true"/>
+      </div>
+    </div>
+
+    <ion-button shape="round" class="cta mt-[46px] w-[238px] mx-auto text-xl" >LOREM IPSUM</ion-button>
+  </div>
+</ion-content> 

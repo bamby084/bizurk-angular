@@ -10,18 +10,23 @@ export const routes: Routes = [
     children: [
       {
         path: "home",
-        loadComponent: () => import("./features/home/home.component")
+        loadComponent: () => import("./features/home/pages/home-page")
           .then(m => m.HomeComponent)
       },
       {
         path: "currency",
-        loadComponent: () => import("./features/currency/currency.component")
+        loadComponent: () => import("./features/currency/pages/currency-page")
           .then(m => m.CurrencyComponent)
       },
       {
-        path: "settings",
-        loadComponent: () => import("./features/settings/settings.component")
-          .then(m => m.SettingsComponent)
+        path: "currency/:value",
+        loadComponent: () => import("./features/currency/pages/currency-page")
+          .then(m => m.CurrencyComponent)
+      },
+      {
+        path: "analytic",
+        loadComponent: () => import("./features/analytic/pages/analytic.page")
+          .then(m => m.AnalyticPageComponent)
       },
     ]
   },
@@ -32,7 +37,7 @@ export const routes: Routes = [
     children: [
       {
         path: "login",
-        loadComponent: () => import("./features/auth/pages/login/login.component")
+        loadComponent: () => import("./features/auth/pages/login")
           .then(m => m.LoginComponent)
       },
       {

@@ -1,0 +1,24 @@
+:host{
+  padding: 28px;
+}
+
+ion-input.name-input{
+  --highlight-height: 0px;
+  --padding-start: 20px;
+  --background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(255,255,255,1));
+  --border-radius: 24px;
+}
+
+ion-button.card{
+  --background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(255,255,255,1));
+  --color: black;
+  --border-radius: 20px;
+  text-transform: none;
+}
+
+ion-button.cta{
+  --background: linear-gradient(to right, #1AAAFC, #0479F7);
+  &::part(native){
+    height: 70px;
+  }
+}

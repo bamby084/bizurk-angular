@@ -5,9 +5,9 @@ import { AuthStore } from '../../stores/auth.store';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-login-page',
+  templateUrl: './index.html',
+  styleUrls: ['./index.scss'],
   standalone: true,
   imports: [IonInput, IonInputPasswordToggle, IonButton, FormsModule, IonSpinner, IonNote],
 })

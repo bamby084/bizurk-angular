@@ -1,4 +1,8 @@
 
+:host{
+  min-height: 200px;
+}
+
 .native-vertical-slider{
   direction: rtl;
   writing-mode: vertical-lr;
@@ -27,6 +31,16 @@
   transform: translateX(-50%);
 }
 
+.slider-progress{
+  position: absolute;
+  bottom: 0;
+  width: 8px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background: #10A4FE;
+  border-radius: 4px;
+}
+
 .slider-thumb {
   width: 22px;
   height: 22px;
@@ -34,6 +48,6 @@
   background: #10A4FE;
   position: absolute;
   margin-left: 50%;
-  transform: translateX(-50%);
-  top: 30%;
+  transform: translate(-50%, 50%);
+  box-shadow: 0 0 5px 2px rgba(16,164,254,.5);;
 }
